@@ -1,0 +1,228 @@
+:root {
+    --box-shadow: 3px 3px 5px 2px rgba(0,0,0,0.2);
+    --bg-color: #0078A0;
+
+}
+@font-face {
+    font-family: poppins;
+    src: url(assets/fonts/Poppins/Poppins-Regular.ttf);
+}
+
+@font-face {
+    font-family: quicksand;
+    src: url(assets/fonts/Quicksand/Quicksand-VariableFont_wght.ttf);
+}
+
+/* Resets */ 
+
+*, h1, h2, body, p {
+    margin-block-start: 0;
+    margin-block-end: 0;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    font-family: quicksand;
+    box-sizing: border-box;
+    gap: 3rem;
+}
+
+main, header, footer {
+    display: flex;
+    padding: 2em;
+}
+
+
+/* Header */
+
+header {
+    justify-content: center;
+    position: relative;
+}
+
+.pic {
+    width: calc(300px + 10%);
+    height: 500px;
+    background-image: url(assets/images/header.jpg);
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    box-shadow: var(--box-shadow);
+}
+
+header::before {
+    content: "";
+    position: absolute;
+    top: -500px;
+    left: 0;
+    width: 100%;
+    height: 50rem;
+    background-color: var(--bg-color);
+    z-index: -1;
+    transform: skewY(-10deg);
+    box-shadow: var(--box-shadow); 
+}
+
+header h1 {
+    font-size: 3rem;
+}
+
+header section {
+    background-color: #fff;
+    box-shadow: var(--box-shadow);
+    padding: 2rem;
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;
+    gap: 2rem;
+}
+
+header .logos {
+    display: flex;
+    align-self: flex-end;
+    gap: 1rem;
+    margin-top: auto;
+}
+
+/* Main */ 
+
+main {
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.projects {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: space-evenly;
+}
+
+.cards {
+    display: flex;
+    flex-direction: column;
+    max-width: 350px;
+    min-height: 350px;
+    box-shadow: var(--box-shadow);
+}
+
+.cards section {
+    padding: 0.5rem 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    position: relative;
+}
+
+.cards section h2 {
+    font-size: 1.25rem;
+}
+
+.cards section h2::after, .cards section h2::before {
+    position: absolute;
+    top: 10px;
+    right: 25px;
+    content: url(assets/icons/open-in-new.svg);
+    width: 25px;
+    height: auto;
+}
+
+.cards section h2::before {
+    right: 60px;
+    content: url(https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg);
+}
+
+.cards section p {
+    font-size: 0.9rem;
+}
+
+/* Footer */ 
+
+footer {
+    background-color: var(--bg-color);
+    color: #fff;
+    align-items: start;
+    gap: 2rem;
+    justify-content: center;
+}
+
+footer section {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    background-color: inherit;
+}
+
+footer .logos {
+    display: flex;
+    gap: 1rem;
+}
+
+.contact-details {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+
+@media (max-width: 1024px) {
+
+    header {
+        margin-top: 5rem;
+    }
+
+    header section {
+        align-self: flex-end;
+        min-height: 300px;
+        padding-left: 7rem;
+    }
+    
+    .pic {
+        top: -5rem;
+        left: 5rem;
+        width: calc(500px + 10%);
+    }    
+}
+
+@media (max-width:750px) {
+
+    header, footer {
+        flex-wrap: wrap;
+    }
+
+    .pic {
+        position: unset;
+        margin-bottom: 1rem;
+        width: calc(300px + 10%);
+    }
+
+    header section, footer section {
+        padding: 0px;
+        box-shadow: none;
+        padding: 2rem;
+        width: 300px;
+    }
+
+    header section h1 {
+        text-align: center;
+    }
+
+    header .logos {
+        align-self: center;
+    }
+
+    footer {
+        gap: unset;
+    }
+
+    footer section {
+        padding: 2rem;
+        box-sizing: border-box;
+        align-items: center;
+        text-align: center;
+    }
+}
